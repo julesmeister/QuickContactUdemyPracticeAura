@@ -1,17 +1,36 @@
-# Salesforce DX Project: Next Steps
+# Salesforce DX Project: Quick Contacts
+
+This project is a Salesforce DX application that provides a user-friendly interface for managing contacts.
+
+## Overview of Components
+
+### QuickContacts App
+The `QuickContacts.app` is the main application for displaying and managing contacts. It utilizes Aura components to create a responsive and interactive user interface.
+
+- **File Location**: `force-app/main/default/aura/QuickContacts/QuickContacts.app`
+- **Key Features**:
+  - Displays a list of contacts.
+  - Allows users to navigate to contact details.
+
+### ContactController Class
+The `ContactController.cls` is the Apex controller that handles the business logic for the Quick Contacts application.
+
+- **File Location**: `force-app/main/default/classes/ContactController.cls`
+- **Key Features**:
+  - Fetches contact data from Salesforce.
+  - Provides methods for creating, updating, and deleting contacts.
+
+## Next Steps
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
-## How Do You Plan to Deploy Your Changes?
-
+### How Do You Plan to Deploy Your Changes?
 Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
 
-## Configure Your Salesforce DX Project
-
+### Configure Your Salesforce DX Project
 The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
 
-## Read All About It
-
+### Read All About It
 - [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
 - [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 - [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
