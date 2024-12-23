@@ -1,0 +1,26 @@
+<aura:component controller="ContactController">
+    <aura:attribute name="contacts" type="Contact[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> <!-- Get contacts on init -->
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Contact List</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <aura:iteration items="{!v.contacts}" var="contact">
+                    <li class="list-group-item list-group-item-action mb-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{!'#contact/'+contact.Id}" class="text-decoration-none">
+                                    <h5 class="card-title">{!contact.FirstName}</h5>
+                                    <p class="card-text">{!contact.Phone}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </aura:iteration>
+            </ul>
+        </div>
+    </div>
+</aura:component>
