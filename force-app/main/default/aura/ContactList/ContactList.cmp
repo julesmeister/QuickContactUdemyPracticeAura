@@ -1,15 +1,23 @@
 <aura:component controller="ContactController">
     <aura:attribute name="contacts" type="Contact[]" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> <!-- Get contacts on init -->
-    
+    <aura:handler event="c:SearchKeyChange" action="{!c.searchKeyChange}" />
+
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Contact List</h3>
+        <div class="panel-heading py-3 border-bottom">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="panel-title mb-0 h2 text-dark">Contact List</h3>
+                </div>
+                <div class="col-md-6">
+                    <c:SearchBar />
+                </div>
+            </div>
         </div>
         <div class="panel-body">
             <ul class="list-group">
-                <aura:iteration items="{!v.contacts}" var="contact">
-                    <li class="list-group-item list-group-item-action mb-2">
+                <aura:iteration items="{!v.contacts}" var="contact" indexVar="index">
+                    <li class="list-group-item list-group-item-action mb-2 border-top">
                         <div class="card">
                             <div class="card-body">
                                 <a href="{!'#contact/'+contact.Id}" class="text-decoration-none">
