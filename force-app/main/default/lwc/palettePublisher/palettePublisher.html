@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Palette Publisher">
+        <div class="slds-m-around_medium">
+            <lightning-layout multiple-rows="multiple-rows">
+                <lightning-layout-item flexibility="auto" padding="around-small" vertical-align="center">
+                    <lightning-layout-item size="12" padding="around-small">
+                      <lightning-combobox label="Color" value={color} options={colorCodeOptions} onchange={changeColor}></lightning-combobox>
+                      <div class="slds-m-top_small">
+                        <lightning-button label="change color" onclick={handleChangeColor} variant="brand"></lightning-button>
+                      </div>
+                    </lightning-layout-item>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+
+</template>

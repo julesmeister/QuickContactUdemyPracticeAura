@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Parent Component">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Enter message" value={message} onchange={handleMessage}></lightning-input>
+            <c-child-comp message={message}></c-child-comp>
+
+            <!-- this child component is receiving the message via a custom event -->
+            <c-child-comp2 onmessagechange={handleCustomMessage}></c-child-comp2>
+            <p class="slds-text-heading_medium">Value from Child: {customMessage}</p>
+
+        </div>
+    </lightning-card>
+</template>
