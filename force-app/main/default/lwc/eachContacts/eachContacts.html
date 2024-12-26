@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Contact List">
+        <ul class="slds-list_unordered slds-m-around_medium">
+            <template for:each={contacts} for:item="contact">
+                <li key={contact.Id}>
+                    <p>{contact.Name}</p>
+                    <p>{contact.Title}</p>
+                    <p>{contact.Phone}</p>
+                    <p>{contact.Email}</p>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
