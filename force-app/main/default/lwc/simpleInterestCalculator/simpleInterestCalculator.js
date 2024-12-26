@@ -1,10 +1,11 @@
-import { LightningElement, track } from 'lwc';
+// Note: starting with LWC 1.11, all fields are reactive so track decorator is no longer needed
+import { LightningElement } from 'lwc';
 
 export default class SimpleInterestCalculator extends LightningElement {
-    @track principalAmount = 0;
-    @track interestRate = 0;
-    @track timePeriod = 0;
-    @track simpleInterest = '';
+    principalAmount = 0;
+    interestRate = 0;
+    timePeriod = 0;
+    simpleInterest = '';
     
     handlePrincipalAmountChange(event) {
         this.principalAmount = event.target.value;
