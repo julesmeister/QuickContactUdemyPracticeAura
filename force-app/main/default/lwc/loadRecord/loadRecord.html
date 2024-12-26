@@ -1,0 +1,38 @@
+<template>
+    <!-- <lightning-record-view-form layout-type="Compact" mode="view" object-api-name="Account" record-id={recordId} fields={fields}>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                <lightning-output-field field-name="Name"></lightning-output-field>
+                <lightning-output-field field-name="Phone"></lightning-output-field>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                <lightning-output-field field-name="Industry"></lightning-output-field>
+                <lightning-output-field field-name="AnnualRevenue"></lightning-output-field>
+            </div>
+        </div>
+    </lightning-record-view-form> -->
+    <lightning-record-edit-form object-api-name="Contact" record-id={recordId} >
+        <lightning-output-field 
+          field-name="AccountId"
+          variant="standard"
+        ></lightning-output-field>
+        <lightning-input-field
+          field-name="FirstName"
+          variant="standard"
+        ></lightning-input-field>
+        <lightning-input-field
+          field-name="LastName"
+          variant="standard"
+        ></lightning-input-field>
+        <lightning-input-field
+          field-name="Email"
+          variant="standard"
+        ></lightning-input-field>
+        <lightning-button 
+          variant="brand"
+          label="Update" 
+          class="slds-m-top_small slds-m-top_medium"
+          type="submit" 
+        ></lightning-button>
+    </lightning-record-edit-form>
+</template>
