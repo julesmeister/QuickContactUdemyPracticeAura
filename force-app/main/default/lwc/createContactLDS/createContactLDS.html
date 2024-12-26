@@ -1,11 +1,16 @@
 <template>
     <lightning-card title="Create Contact">
-        <lightning-layout>
-            <lightning-layout-item size="6" padding="around-small">
-                <lightning-input label="Name" variant="base" name="name" onchange={contactNameChangeHandler}></lightning-input>
-                <lightning-input label="Email" variant="base" name="email" onchange={contactEmailChangeHandler}></lightning-input>
-                <lightning-input label="Phone" variant="base" name="phone" onchange={contactPhoneChangeHandler} class="slds-m-bottom_medium"></lightning-input>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" padding="around-small">
+                <lightning-input label="Name" variant="base" name="name" value={name} onchange={contactNameChangeHandler}></lightning-input>
+                <lightning-input label="Email" variant="base" name="email" value={email} onchange={contactEmailChangeHandler}></lightning-input>
+                <lightning-input label="Phone" variant="base" name="phone" value={phone} onchange={contactPhoneChangeHandler} class="slds-m-bottom_medium"></lightning-input>
                 <lightning-button label="Save" variant="brand" name="save" onclick={saveContact} class="slds-m-bottom_medium"></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-small" if:true={recordId}>
+                <p>Last Name: <lightning-formatted-name value={contactName} variant="base"></lightning-formatted-name></p>
+                <p>Email: <lightning-formatted-email value={contactEmail} variant="base"></lightning-formatted-email></p>
+                <p>Phone: <lightning-formatted-phone value={contactPhone} variant="base"></lightning-formatted-phone></p>
             </lightning-layout-item>
         </lightning-layout>
     </lightning-card>
