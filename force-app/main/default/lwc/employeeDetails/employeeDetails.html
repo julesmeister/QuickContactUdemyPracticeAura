@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Employee Details">
+        <!-- 
+            We are using the for:each directive to loop through the 
+            array of employee objects and display each employee's 
+            details in a list item.
+        -->
+        <ul class="slds-list_unordered slds-m-around_medium">
+            <template for:each={empDetails} for:item="emp">
+                <li key={emp.empName}>
+                    <!-- 
+                        We are calling the employeeDetail component 
+                        for each employee object in the array and 
+                        passing the current employee object as a 
+                        property to the component.
+                    -->
+                    <c-employee-detail emp-detail={emp}></c-employee-detail>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
