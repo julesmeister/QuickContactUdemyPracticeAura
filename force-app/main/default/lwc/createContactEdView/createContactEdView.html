@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Create Contact and View Record">
+        <lightning-layout multiple-rows="multiple-rows">
+            <lightning-layout-item size="12" padding="around-small" if:false={recordId}>
+                <lightning-card title="Create A New Contact Record" variant="base">
+                    <lightning-record-edit-form object-api-name="Contact" onsuccess={createContact}>
+                        <p>
+                            <lightning-input-field field-name="Name"></lightning-input-field>
+                        </p>
+                        <p>
+                            <lightning-input-field field-name="Email"></lightning-input-field>
+                        </p>
+                        <p class="slds-m-bottom_medium">
+                            <lightning-input-field field-name="Phone"></lightning-input-field>
+                        </p>
+                        <lightning-button label="Create Contact" variant="brand" name="save" type="submit" class="slds-m-top_medium"></lightning-button>
+                    </lightning-record-edit-form>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-small" if:true={recordId}>
+                <lightning-card title="View Contact Record">
+                    <lightning-record-view-form object-api-name="Contact" record-id={recordId}>
+                        <div class="slds-box">
+                            <p>
+                                <lightning-output-field field-name="Name" variant="base"></lightning-output-field>
+                            </p>
+                            <p>
+                                <lightning-output-field field-name="Email" variant="base"></lightning-output-field>
+                            </p>
+                            <p>
+                                <lightning-output-field field-name="Phone" variant="base"></lightning-output-field>
+                            </p>
+                        </div>
+                    </lightning-record-view-form>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
