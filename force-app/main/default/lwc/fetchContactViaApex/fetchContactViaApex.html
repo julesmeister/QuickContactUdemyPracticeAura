@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="All Contact Records">
+        <ul class="slds-list_unordered slds-m-around_medium">
+            <template if:true={responseReceived}>
+                <template for:each={contacts.data} for:item="contact">
+                    <li key={contact.Id}>
+                        {contact.LastName} - {contact.Phone}
+                    </li>
+                </template>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
