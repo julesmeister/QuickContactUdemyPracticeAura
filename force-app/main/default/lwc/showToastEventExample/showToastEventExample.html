@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Toast Event Example">
+        <center>
+            <div class="slds-m-around_medium">
+                <h2 classs="slds-text-heading_medium slds-m-bottom_medium">Show Toast Notification</h2>
+            </div>
+
+            <lightning-button-group>
+                <lightning-button label="Show Success" variant="success" onclick={handleSuccess}></lightning-button>
+                <lightning-button label="Show Error" variant="error" onclick={handleError}></lightning-button>
+                <lightning-button label="Show Warning" variant="warning" onclick={handleWarning}></lightning-button>
+                <lightning-button label="Show Info" variant="info" onclick={handleInfo}></lightning-button>
+            </lightning-button-group>
+        </center>
+    </lightning-card>
+</template>
