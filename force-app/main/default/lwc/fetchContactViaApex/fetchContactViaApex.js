@@ -2,18 +2,30 @@ import { LightningElement, wire } from 'lwc';
 import getAllContacts from '@salesforce/apex/ContactManager.getContact';
 
 export default class FetchContactViaApex extends LightningElement {
-    @wire(getAllContacts) contacts;
+    contactCount;
+    contacts;
+    // Used only if we don't need to get the contactCount from the form
+    // @wire(getAllContacts) contacts;
     get responseReceived() {
-        // check if the contacts variable has been populated
-        // this.contacts will be an object with data and error properties
-        // if the data property is not null, then the response has been received
         console.log('contacts:', JSON.stringify(this.contacts, null, 2));
-        if (this.contacts && this.contacts.data) {
+        if (this.contacts && this.contacts.length > 0) {
             console.log('response received');
             return true;
+        } else {
+            console.log('response not received');
+            return false;
         }
-        // if the data property is null, the response has not been received
-        console.log('response not received');
-        return false;
+    }
+
+    handleContactCountChange(event) {
+        this.contactCount = event.target.value;
+    }
+
+    fetchContacts() {
+        getAllContacts({ count: this.contactCount }).then(result => {
+            this.contacts = result;
+        }).catch(error => {
+            console.error('Error fetching contacts:', error);
+        });
     }
 }
