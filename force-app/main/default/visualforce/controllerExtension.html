@@ -1,0 +1,17 @@
+<apex:page standardController="Account" extensions="myControllerExtension">
+    {!greeting}
+    <apex:form>
+        <apex:pageblock title="My Content" mode="edit">
+            <apex:pageBlockButtons>
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Cancel" />
+            </apex:pageBlockButtons>
+            <apex:pageblockSection title="Account Form" columns="2">
+                <apex:inputField value="{!account.Name}" />
+                <apex:inputField value="{!account.Site}" />
+                <apex:inputField value="{!account.Type}" />
+                <apex:inputField value="{!account.AccountNumber}" />
+            </apex:pageblockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

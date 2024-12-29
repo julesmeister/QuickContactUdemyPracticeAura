@@ -1,0 +1,89 @@
+<apex:page standardController="Account" recordSetVar="accts">
+    <apex:toolbar id="toolbar">
+        <apex:outputText value="Home" />
+        <apex:toolbarGroup itemSeparator="line" id="group1">
+            <apex:outputText value="About" />
+            <apex:outputText value="Contact" />
+            <apex:outputText value="Help" />
+        </apex:toolbarGroup>
+    </apex:toolbar>
+
+
+    <apex:tabPanel>
+        <apex:tab label="Home" name="home1" id="tabOne">We have self paced videos which you can watch at your own pace
+        </apex:tab>
+        <apex:tab label="Students" name="students1" id="tabTwo">What if I say you can get salesforce for free</apex:tab>
+    </apex:tabPanel>
+
+    <apex:panelBar>
+        <apex:panelBarItem label="Item1" onenter="alert('Hello how are you?')" onleave="alert('Goodbye how are you?')">
+            Hello how are you?</apex:panelBarItem>
+        <apex:panelBarItem label="Item2">I am the founder of Julesmeister</apex:panelBarItem>
+        <apex:panelBarItem label="Item3">julesmeister.pages.dev</apex:panelBarItem>
+    </apex:panelBar>
+    <apex:panelGrid columns="3" border="3" id="theGrid">
+        <apex:outputText value="First" id="theFirst"></apex:outputText>
+        <apex:outputText value="Second" id="theSecond"></apex:outputText>
+        <apex:outputText value="Third" id="theThird"></apex:outputText>
+        <apex:outputText value="Fourth" id="theFourth"></apex:outputText>
+        <apex:outputText value="Fifth" id="theFifth"></apex:outputText>
+        <apex:outputText value="Sixth" id="theSixth"></apex:outputText>
+        <apex:panelGroup>
+            <apex:outputText value="Seventh" id="theSeventh"></apex:outputText>
+            <apex:outputText value="Eighth" id="theEighth"></apex:outputText>
+            <apex:outputText value="Ninth" id="theNinth"></apex:outputText>
+        </apex:panelGroup>
+    </apex:panelGrid>
+    <apex:form>
+        <apex:pageblock title="My Content" mode="edit">
+            <apex:pageMessage summary="Oh my gord" severity="confirm" strength="1"></apex:pageMessage>
+            <apex:pageBlockButtons>
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Cancel" />
+            </apex:pageBlockButtons>
+
+            <apex:pageblockSection title="Account Form" columns="2">
+
+                <apex:inputField value="{!account.Name}" />
+                <apex:inputField value="{!account.Site}" />
+                <apex:inputField value="{!account.Type}" />
+                <apex:inputField value="{!account.AccountNumber}" />
+
+            </apex:pageblockSection>
+            <apex:pageBlockSection title="List Controller">
+
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+    <apex:pageBlock>
+        <apex:pageBlockTable value="{!accts}" var="acct">
+            <apex:column value="{!acct.Name}" />
+            <apex:column value="{!acct.Site}" />
+            <apex:column value="{!acct.Type}" />
+            <apex:column value="{!acct.AccountNumber}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+    <apex:pageBlock>
+        <apex:form>
+            <apex:selectList value="{!filterid}" label="Account Type">
+                <apex:selectOptions value="{!listviewoptions}" />
+            </apex:selectList>
+            <apex:commandButton action="{!list}" value="List" />
+        </apex:form>
+    </apex:pageBlock>
+
+    <apex:pageBlock>
+        <apex:form id="paginatedForm">
+            <apex:pageBlockSection>
+                <apex:datalist value="{!accts}" var="acct" type="1" pageSize="2">
+                    {!acct.Name}
+                </apex:datalist>
+            </apex:pageBlockSection>
+            <apex:panelGrid columns="2">
+                <apex:commandButton action="{!previous}" value="Previous" />
+                <apex:commandButton action="{!next}" value="Next" />
+            </apex:panelGrid>
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

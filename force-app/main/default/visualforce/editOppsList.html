@@ -1,0 +1,22 @@
+<apex:page standardController="Opportunity" recordSetVar="opps">
+    <apex:form>
+        <apex:pageblock title="My Opportunities" mode="edit">
+            <apex:pageBlockButtons>
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Cancel" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!opps}" var="opp">
+                <apex:column value="{!opp.Name}" />
+                <apex:column headerValue="Stage">
+                    <apex:inputField value="{!opp.StageName}" />
+                </apex:column>
+                <apex:column headerValue="Amount">
+                    <apex:inputField value="{!opp.Amount}" />
+                </apex:column>
+                <apex:column headerValue="Close Date">
+                    <apex:inputField value="{!opp.CloseDate}" />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>
